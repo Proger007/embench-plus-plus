@@ -1,0 +1,53 @@
+\doxysection{embench++.h}
+\hypertarget{embench_09_09_8h_source}{}\label{embench_09_09_8h_source}\index{include/embench++.h@{include/embench++.h}}
+\mbox{\hyperlink{embench_09_09_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexey\ on\ 01.09.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ EMBENCH\_EMBENCH\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ EMBENCH\_EMBENCH\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }embpp}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00034\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptembpp_1_1_metricable}{Metricable}}\ =\ \textcolor{keyword}{requires}(T\ t)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \{\ t.get\_metric()\ \}\ -\/>\ std::same\_as<std::uint32\_t>;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \{\ t.setup()\ \};\ }
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}<std::\textcolor{keywordtype}{size\_t}\ N,\ Metricable\ Metric,\ auto\ FUT>}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classembpp_1_1_benchmark}{Benchmark}}\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classembpp_1_1_benchmark_a3489cbca8d0129ede045dc1a8c9a9c7f}{Benchmark}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683}{run}}()}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ metric.setup();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ number;\ ++i)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hot\ path\ start}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint32\_t\ start\ =\ metric.get\_metric();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ FUT();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint32\_t\ end\ =\ metric.get\_metric();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hot\ path\ end}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ results[i]\ =\ end\ -\/\ start;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ Metric\ metric;\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ std::size\_t\ number\{N\};\ }
+\DoxyCodeLine{00085\ \ \ \ \ std::array<std::uint32\_t,\ N>\ results;\ }
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//EMBENCH\_EMBENCH\_H}}
+
+\end{DoxyCode}

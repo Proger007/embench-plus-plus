@@ -1,0 +1,31 @@
+\doxysection{embpp\+::Metricable Concept Reference}
+\hypertarget{conceptembpp_1_1_metricable}{}\label{conceptembpp_1_1_metricable}\index{embpp::Metricable@{embpp::Metricable}}
+
+
+Concept to define a metric for benchmarking.  
+
+
+
+
+{\ttfamily \#include $<$embench++.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptembpp_1_1_metricable}{embpp::Metricable}}\ =\ \ \textcolor{keyword}{requires}(T\ t)\ \{}
+\DoxyCodeLine{\ \ \ \ \{\ t.get\_metric()\ \}\ -\/>\ std::same\_as<std::uint32\_t>;\ }
+\DoxyCodeLine{\ \ \ \ \{\ t.setup()\ \};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept to define a metric for benchmarking. 
+
+The {\ttfamily Metricable} concept ensures that the type passed as a Metric implements both the {\ttfamily get\+\_\+metric()} and {\ttfamily setup()} methods.
+\begin{DoxyItemize}
+\item {\ttfamily get\+\_\+metric()} should return a 32-\/bit unsigned integer representing the metric value (e.\+g., cycle count).
+\item {\ttfamily setup()} should initialize or reset the metric system before the benchmark starts. 
+\end{DoxyItemize}
