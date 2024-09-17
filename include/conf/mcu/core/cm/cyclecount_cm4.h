@@ -14,15 +14,22 @@ class CycleCounter
 public:
     inline void setup()
     {
-        if (!(CoreDebug->DEMCR & CoreDebug_DEMCR_TRCENA_Msk)) {
+        if (!(CoreDebug->DEMCR & CoreDebug_DEMCR_TRCENA_Msk))
+        {
             CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
         }
         DWT->CYCCNT = 0;
         DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
     }
-    inline uint32_t get_metric() const
+
+    inline uint32_t get_metric_start() const
     {
         return DWT->CYCCNT;
+    }
+
+    inline uint32_t get_metric_end() const
+    {
+        return DWT->CYCCNT - 1;
     }
 };
 
