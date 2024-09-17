@@ -17,6 +17,7 @@
 
 #include <array>
 #include <cstdint>
+#include <span>
 #include <type_traits>
 
 namespace embpp
@@ -26,14 +27,27 @@ namespace embpp
  * @brief Concept to define a metric for benchmarking.
  *
  * The `Metricable` concept ensures that the type passed as a Metric
- * implements both the `get_metric()` and `setup()` methods.
- * - `get_metric()` should return a 32-bit unsigned integer representing the metric value (e.g., cycle count).
+ * implements the `get_metric_start()`, `get_metric_end()` and `setup()` methods.
+ * - `get_metric_start()` should return a 32-bit unsigned integer representing the metric start value (e.g., cycle count).
+ * - `get_metric_end()` should return a 32-bit unsigned integer representing the metric end value (e.g., cycle count - 1).
  * - `setup()` should initialize or reset the metric system before the benchmark starts.
  */
 template <typename T>
-concept Metricable = requires(T t) {
-    { t.get_metric() } -> std::same_as<std::uint32_t>; ///< Metric should return a value of used metric.
+concept Metricable = requires(T t)
+{
+    { t.get_metric_start() } -> std::same_as<std::uint32_t>; ///< Metric should return a value of used metric.
+    { t.get_metric_end() } -> std::same_as<std::uint32_t>; ///< Metric should return a value of used metric.
     { t.setup() }; ///< Setup should initialize or reset the metric, can be empty.
+};
+
+/**
+ * @brief Concept to define a Processor to process the results after benchmark run.
+ * @tparam T - Class implementing process method
+ */
+template <typename T>
+concept ResultsProcessor = requires(T t, std::span<const std::uint32_t> results)
+{
+    { t.process(results) } -> std::same_as<void>; ///< Processor should take a uint32_t sequence
 };
 
 /**
@@ -48,7 +62,8 @@ concept Metricable = requires(T t) {
  * @tparam FUT The function under test (FUT), passed as a template parameter.
  */
 template<std::size_t N, Metricable Metric, auto FUT>
-class Benchmark {
+class Benchmark
+{
 public:
     /**
      * @brief Default constructor.
@@ -72,12 +87,25 @@ public:
         for (std::size_t i = 0; i < number; ++i)
         {
             // Hot path start
-            std::uint32_t start = metric.get_metric();
+            std::uint32_t start = metric.get_metric_start();
             FUT();
-            std::uint32_t end = metric.get_metric();
+            std::uint32_t end = metric.get_metric_end();
             // Hot path end
             results[i] = end - start;
         }
+    }
+
+    /**
+     * @brief Processes the results for the specified output
+     *
+     * Processes the results obtained from the benchmark run to prepare user defined output.
+     * This can include calculating simple statistics (MinMaxAvg, MeanStdDev, Histogram etc), prettify raw data,
+     * or performing custom calculations.
+     */
+    template <ResultsProcessor Processor>
+    void process_results(Processor& proc)
+    {
+        proc.process(results);
     }
 private:
     Metric metric; ///< Instance of the metric used to measure performance.
