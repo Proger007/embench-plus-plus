@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/conf
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/core
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/proc/
 )
-#set_target_properties(${PROJECT_NAME} PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)

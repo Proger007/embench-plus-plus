@@ -2,12 +2,12 @@
 // Created by Alexey on 15.09.2024.
 //
 
-#ifndef EMBENCH_INCLUDE_CONF_MCU_CORE_CM_CYCLECOUNT_CM_H
-#define EMBENCH_INCLUDE_CONF_MCU_CORE_CM_CYCLECOUNT_CM_H
+#ifndef EMBENCH_INCLUDE_METRICS_CORE_CM_CYCLECOUNT_CM4_H
+#define EMBENCH_INCLUDE_METRICS_CORE_CM_CYCLECOUNT_CM4_H
 
 #include "core_cm4.h"
 
-namespace embpp::conf::mcu::core::cm4 {
+namespace embpp::metrics::core::cm4 {
 
 class CycleCounter
     {
@@ -33,6 +33,6 @@ public:
     }
 };
 
-}  // namespace embpp::conf::mcu::core::cm
+}  // namespace embpp::metrics::core::cm4
 
-#endif //EMBENCH_INCLUDE_CONF_MCU_CORE_CM_CYCLECOUNT_CM_H
+#endif //EMBENCH_INCLUDE_METRICS_CORE_CM_CYCLECOUNT_CM4_H

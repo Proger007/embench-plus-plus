@@ -102,10 +102,10 @@ public:
      * This can include calculating simple statistics (MinMaxAvg, MeanStdDev, Histogram etc), prettify raw data,
      * or performing custom calculations.
      */
-    template <ResultsProcessor Processor>
-    void process_results(Processor& proc)
+    template <ResultsProcessor... Processors>
+    void process_results(Processors&... proc)
     {
-        proc.process(results);
+        (proc.process(results), ...);
     }
 private:
     Metric metric; ///< Instance of the metric used to measure performance.
