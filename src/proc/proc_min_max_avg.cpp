@@ -17,3 +17,9 @@ void embpp::proc::MinMaxAvg::process(std::span<const uint32_t> results)
     uint64_t sum = std::accumulate(begin(results), end(results), 0);
     avg = sum / results.size();
 }
+
+embpp::proc::MinMaxAvg::operator std::string_view()
+{
+    text = "Max = " + std::to_string(max) + ", min = " + std::to_string(min) + ", avg = " + std::to_string(avg);
+    return this->text;
+}

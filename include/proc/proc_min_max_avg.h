@@ -7,6 +7,7 @@
 
 #include <cstdint>
 #include <span>
+#include <string_view>
 
 namespace embpp::proc
 {
@@ -16,8 +17,10 @@ private:
     uint32_t min;
     uint32_t max;
     uint32_t avg;
+    std::string_view text;
 public:
     void process(std::span<const std::uint32_t> results);
+    operator std::string_view();
 };
 }
 

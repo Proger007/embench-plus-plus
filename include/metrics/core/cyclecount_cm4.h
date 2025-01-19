@@ -24,6 +24,7 @@ public:
 
     inline uint32_t get_metric_start() const
     {
+        __ISB();
         return DWT->CYCCNT;
     }
 

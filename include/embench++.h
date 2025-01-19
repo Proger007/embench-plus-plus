@@ -18,6 +18,7 @@
 #include <array>
 #include <cstdint>
 #include <span>
+#include <string_view>
 #include <type_traits>
 
 namespace embpp
@@ -48,6 +49,7 @@ template <typename T>
 concept ResultsProcessor = requires(T t, std::span<const std::uint32_t> results)
 {
     { t.process(results) } -> std::same_as<void>; ///< Processor should take a uint32_t sequence
+    { t.operator std::string_view() } -> std::same_as<std::string_view>; ///< Should be convertible to string_view
 };
 
 /**

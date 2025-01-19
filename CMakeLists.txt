@@ -11,4 +11,6 @@ target_include_directories(${PROJECT_NAME} INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/
         ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/core
         ${CMAKE_CURRENT_SOURCE_DIR}/include/proc/
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/printers/
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/printers/rtt/segger_rtt/Config
 )
