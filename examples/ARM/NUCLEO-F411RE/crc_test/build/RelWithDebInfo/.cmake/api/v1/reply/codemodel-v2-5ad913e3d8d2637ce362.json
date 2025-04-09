@@ -1,0 +1,274 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						10
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "cmake/stm32cubemx",
+					"jsonFile" : "directory-cmake.stm32cubemx-RelWithDebInfo-4b19649788072bcc790a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "cmake/stm32cubemx"
+				},
+				{
+					"build" : "embench",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						6,
+						8
+					],
+					"jsonFile" : "directory-embench-RelWithDebInfo-584c8c4a63b539c06cde.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus"
+				},
+				{
+					"build" : "embench/core",
+					"jsonFile" : "directory-embench.core-RelWithDebInfo-f020c4eaf1bf5f8d32a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/core"
+				},
+				{
+					"build" : "embench/metrics",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-embench.metrics-RelWithDebInfo-928ad2eb1e32b04b698f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/metrics"
+				},
+				{
+					"build" : "embench/metrics/core/cyccnt",
+					"jsonFile" : "directory-embench.metrics.core.cyccnt-RelWithDebInfo-c348ad6085a807fb7f4f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/metrics/core/cyccnt"
+				},
+				{
+					"build" : "embench/printers",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-embench.printers-RelWithDebInfo-09c7137234aa566137e6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/printers"
+				},
+				{
+					"build" : "embench/printers/rtt",
+					"jsonFile" : "directory-embench.printers.rtt-RelWithDebInfo-0ba1504fba40f7f4332c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/printers/rtt",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "embench/proc",
+					"childIndexes" : 
+					[
+						9
+					],
+					"jsonFile" : "directory-embench.proc-RelWithDebInfo-e917ac897adcf7bc1488.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/proc"
+				},
+				{
+					"build" : "embench/proc/min_max_avg",
+					"jsonFile" : "directory-embench.proc.min_max_avg-RelWithDebInfo-2f93dfeebb2fdd8f000e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 2,
+					"source" : "/workspaces/embench-plus-plus/proc/min_max_avg",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "FUTs",
+					"jsonFile" : "directory-FUTs-RelWithDebInfo-02b09f2189fd522af3b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "FUTs",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "crc_test_f411",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "stm32cubemx",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					],
+					"name" : "embench++",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						10
+					],
+					"name" : "stm32_crc_fut",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "crc_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-crc_test-RelWithDebInfo-352d1079486048b1bd2f.json",
+					"name" : "crc_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "printer_rtt::@3ed10adc8a8f4f86daec",
+					"jsonFile" : "target-printer_rtt-RelWithDebInfo-974610294e9e8d8ec8cd.json",
+					"name" : "printer_rtt",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "proc_min_max_avg::@e745577f259155099ff4",
+					"jsonFile" : "target-proc_min_max_avg-RelWithDebInfo-53198cfd75d2bbc46eeb.json",
+					"name" : "proc_min_max_avg",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "stm32_crc_fut::@f3c172cde31d77f8ab39",
+					"jsonFile" : "target-stm32_crc_fut-RelWithDebInfo-a6c463c9fe32f31ff329.json",
+					"name" : "stm32_crc_fut",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/workspaces/embench-plus-plus/examples/ARM/NUCLEO-F411RE/crc_test/build/RelWithDebInfo",
+		"source" : "/workspaces/embench-plus-plus/examples/ARM/NUCLEO-F411RE/crc_test"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

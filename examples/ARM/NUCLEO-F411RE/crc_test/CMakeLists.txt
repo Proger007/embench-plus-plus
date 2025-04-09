@@ -31,11 +31,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 add_compile_options(-mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16
         -mfloat-abi=hard -ffunction-sections -fdata-sections -fmessage-length=0 -fsigned-char -fshort-enums
-        -fno-exceptions -fno-rtti
-        -fomit-frame-pointer -O2 -g --specs=nosys.specs)
+        -fno-exceptions
+        -fomit-frame-pointer -g
+        )
 
 add_link_options(-mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -Xlinker -Map=${PROJECT_NAME}.map)
-add_link_options(-T${CMAKE_CURRENT_LIST_DIR}/STM32F411RETx_FLASH.ld)
 
 # Core project settings
 message("Build type: " ${CMAKE_BUILD_TYPE})
@@ -58,10 +58,6 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
         main.cpp
-        ${CMAKE_SOURCE_DIR}/../../../../src/proc/proc_min_max_avg.cpp
-        ${CMAKE_SOURCE_DIR}/../../../../src/printers/rtt/printer_rtt.cpp
-        ${CMAKE_SOURCE_DIR}/../../../../src/printers/rtt/segger_rtt/RTT/SEGGER_RTT.c
-        ${CMAKE_SOURCE_DIR}/../../../../src/printers/rtt/segger_rtt/RTT/SEGGER_RTT_printf.c
 )
 
 # Add include paths
@@ -77,7 +73,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
         stm32cubemx
+        # Add user defined libraries
         embench++
         stm32_crc_fut
-        # Add user defined libraries
 )

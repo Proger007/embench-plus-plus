@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Unit tests",
+            "type": "shell",
+            "command": "python3",
+            "args": ["execute.py", "unit_tests"],
+            "group": "test",
+            "problemMatcher": [],
+            "options": {
+              "statusbar": {
+                "label" : "$(beaker) Unit tests",
+              }
+            }
+        },
+        {
+            "label": "Check buildable",
+            "type": "shell",
+            "command": "python3",
+            "args": ["execute.py", "build"],
+            "group": "test",
+            "problemMatcher": [],
+            "options": {
+              "statusbar": {
+                "label" : "$(tools) Buildable",
+              }
+            }
+        },
+        {
+            "label": "Static analysis: cppcheck",
+            "type": "shell",
+            "command": "python3",
+            "args": ["execute.py", "cppcheck"],
+            "group": "test",
+            "problemMatcher": [],
+            "options": {
+              "statusbar": {
+                "label" : "$(checklist) Static analysis",
+              }
+            }
+        },
+        {
+            "label": "Documentation: doxygen",
+            "type": "shell",
+            "command": "python3",
+            "args": ["execute.py", "doxygen"],
+            "group": "none",
+            "problemMatcher": [],
+            "options": {
+              "statusbar": {
+                "label" : "$(book) Documentation",
+              }
+            }
+        },
+        {
+            "label": "Code format: clang-format",
+            "type": "shell",
+            "command": "python3",
+            "args": ["execute.py", "format"],
+            "group": "none",
+            "problemMatcher": [],
+            "options": {
+              "statusbar": {
+                "label" : "$(check) Code format",
+              }
+            }
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+add_subdirectory(min_max_avg)

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "embench/proc/min_max_avg",
+		"source" : "/workspaces/embench-plus-plus/proc/min_max_avg"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "embench/printers/rtt",
+		"source" : "/workspaces/embench-plus-plus/printers/rtt"
+	}
+}

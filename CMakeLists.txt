@@ -7,10 +7,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/metrics/core
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/proc/
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/printers/
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/printers/rtt/segger_rtt/Config
+        ${CMAKE_CURRENT_SOURCE_DIR}/
 )
+target_link_libraries(${PROJECT_NAME} INTERFACE
+        embpp_core
+        cortexm4_cyccnt
+        printer_rtt
+        proc_min_max_avg)
+
+add_subdirectory(core)
+add_subdirectory(metrics)
+add_subdirectory(printers)
+add_subdirectory(proc)

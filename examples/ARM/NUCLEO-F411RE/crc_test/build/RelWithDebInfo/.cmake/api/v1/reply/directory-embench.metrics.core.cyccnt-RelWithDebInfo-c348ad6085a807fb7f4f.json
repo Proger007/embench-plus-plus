@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "embench/metrics/core/cyccnt",
+		"source" : "/workspaces/embench-plus-plus/metrics/core/cyccnt"
+	}
+}
