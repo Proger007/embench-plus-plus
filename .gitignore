@@ -46,7 +46,6 @@ _deps
 CMakeUserPresets.json
 
 # CMake build
-cmake-build-*/*
+cmake-build-*/
+build/
 
-#CLion
-.idea/*

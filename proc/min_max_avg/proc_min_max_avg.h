@@ -7,20 +7,19 @@
 
 #include <cstdint>
 #include <span>
-//#include <string_view>
 
 namespace embpp::proc
 {
 class MinMaxAvg
 {
 private:
-    uint32_t min;
-    uint32_t max;
-    uint32_t avg;
-    char text[128];
+    uint32_t min {0};
+    uint32_t max {0};
+    uint32_t avg {0};
+    char text[128] {};
 public:
     void process(std::span<const std::uint32_t> results);
-    operator char*();
+    const char* c_str() const;
 };
 }
 

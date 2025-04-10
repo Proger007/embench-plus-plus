@@ -17,7 +17,6 @@
 
 #include <array>
 #include <cstdint>
-#include <span>
 #include <type_traits>
 
 #include "concepts.h"

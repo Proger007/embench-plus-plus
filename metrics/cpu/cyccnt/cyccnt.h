@@ -29,11 +29,10 @@ public:
 
     inline uint32_t get_metric_end() const
     {
-//        volatile asm("MOV r7, r7");
-        return DWT->CYCCNT - 3;
+        return DWT->CYCCNT - 2;
     }
 };
 
-}  // namespace embpp::metrics::core::cyccnt
+}  // namespace embpp::metrics::cpu::cyccnt
 
 #endif //EMBENCH_INCLUDE_METRICS_CORE_CYCCNT_H

@@ -17,11 +17,10 @@ void embpp::proc::MinMaxAvg::process(std::span<const uint32_t> results)
     max = *p_max;
     uint64_t sum = std::accumulate(begin(results), end(results), 0);
     avg = sum / results.size();
+    snprintf(text, sizeof(text), "Max = %lu, min = %lu, avg = %lu", max, min, avg);
 }
 
-embpp::proc::MinMaxAvg::operator char*()
+const char* embpp::proc::MinMaxAvg::c_str() const
 {
-    snprintf(text, sizeof(text), "Max = %lu, min = %lu, avg = %lu", max, min, avg);
-//    text = "Max = " + std::to_string(max) + ", min = " + std::to_string(min) + ", avg = " + std::to_string(avg);
     return this->text;
 }

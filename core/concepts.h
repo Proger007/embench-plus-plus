@@ -38,7 +38,7 @@ template <typename T>
 concept ResultsProcessor = requires(T t, std::span<const std::uint32_t> results)
 {
 { t.process(results) } -> std::same_as<void>; ///< Processor should take a uint32_t sequence
-{ t.operator char*() } -> std::same_as<char*>; ///< Should be convertible to string_view
+{ t.c_str() } -> std::same_as<const char*>; ///< Should be convertible to char*
 };
 
 /**
@@ -59,7 +59,7 @@ class Printer
 {
 public:
     void
-    operator()(char *text)
+    operator()(const char *text)
     {
         PrinterImpl_::instance().print(text);
     }

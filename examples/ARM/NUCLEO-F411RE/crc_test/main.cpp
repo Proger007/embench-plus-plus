@@ -33,19 +33,19 @@ int main()
     simple.run();
     embpp::proc::MinMaxAvg simpleMinMaxAvg;
     simple.process_results(simpleMinMaxAvg);
-    output(simpleMinMaxAvg);
+    output(simpleMinMaxAvg.c_str());
 
     embpp::Benchmark<128, embpp::metrics::core::cyccnt::CycleCounter, crc32_eth_lut> lut;
     lut.run();
     embpp::proc::MinMaxAvg lutMinMaxAvg;
     lut.process_results(lutMinMaxAvg);
-    output(lutMinMaxAvg);
+    output(lutMinMaxAvg.c_str());
 
     embpp::Benchmark<128, embpp::metrics::core::cyccnt::CycleCounter, crc32_eth_hw> hw;
     hw.run();
     embpp::proc::MinMaxAvg hwMinMaxAvg;
     hw.process_results(hwMinMaxAvg);
-    output(hwMinMaxAvg);
+    output(hwMinMaxAvg.c_str());
 
     for (;;)
     {

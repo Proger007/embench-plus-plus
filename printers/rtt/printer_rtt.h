@@ -5,8 +5,6 @@
 #ifndef EMBENCH_INCLUDE_PRINTERS_PRINTER_RTT_H
 #define EMBENCH_INCLUDE_PRINTERS_PRINTER_RTT_H
 
-//#include "concepts.h"
-
 namespace embpp::print
 {
 class RTT
@@ -23,7 +21,7 @@ public:
     RTT(RTT &&) = delete;
     RTT &operator=(RTT &&) = delete;
 
-    void print(char *text);
+    void print(const char *text);
 
 private:
     RTT() = default;

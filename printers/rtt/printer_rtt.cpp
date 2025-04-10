@@ -6,7 +6,7 @@
 
 #include "segger_rtt/RTT/SEGGER_RTT.h"
 
-void embpp::print::RTT::print(char *text)
+void embpp::print::RTT::print(const char *text)
 {
     SEGGER_RTT_printf(0, text);
 }
