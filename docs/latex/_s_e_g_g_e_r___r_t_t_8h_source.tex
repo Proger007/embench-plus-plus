@@ -1,0 +1,519 @@
+\doxysection{SEGGER\+\_\+\+RTT.\+h}
+\hypertarget{_s_e_g_g_e_r___r_t_t_8h_source}{}\label{_s_e_g_g_e_r___r_t_t_8h_source}\index{printers/rtt/segger\_rtt/RTT/SEGGER\_RTT.h@{printers/rtt/segger\_rtt/RTT/SEGGER\_RTT.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SEGGER\ Microcontroller\ GmbH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ Embedded\ Experts\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ (c)\ 1995\ -\/\ 2021\ SEGGER\ Microcontroller\ GmbH\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ \ \ \ \ \ \ www.segger.com\ \ \ \ \ Support:\ support@segger.com\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ \ \ \ \ \ \ SEGGER\ RTT\ *\ Real\ Time\ Transfer\ for\ embedded\ targets\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ All\ rights\ reserved.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*\ SEGGER\ strongly\ recommends\ to\ not\ make\ any\ changes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*\ to\ or\ modify\ the\ source\ code\ of\ this\ software\ in\ order\ to\ stay\ \ \ \ \ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ compatible\ with\ the\ RTT\ protocol\ and\ J-\/Link.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*\ without\ modification,\ are\ permitted\ provided\ that\ the\ following\ \ \ \ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ condition\ is\ met:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ o\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ \ \ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ \ \ notice,\ this\ condition\ and\ the\ following\ disclaimer.\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*\ CONTRIBUTORS\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{*\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{*\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{*\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ SEGGER\ Microcontroller\ BE\ LIABLE\ FOR\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{*\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ \ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{*\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ \ \ \ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ \ \ \ \ \ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{*\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{*\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ \ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{*\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ \ \ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*\ DAMAGE.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00044\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ version:\ 7.98e\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}}
+\DoxyCodeLine{00049\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/END-\/OF-\/HEADER-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00050\ \textcolor{comment}{File\ \ \ \ :\ SEGGER\_RTT.h}}
+\DoxyCodeLine{00051\ \textcolor{comment}{Purpose\ :\ Implementation\ of\ SEGGER\ real-\/time\ transfer\ which\ allows}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ real-\/time\ communication\ on\ targets\ which\ support\ debugger}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ memory\ accesses\ while\ the\ CPU\ is\ running.}}
+\DoxyCodeLine{00054\ \textcolor{comment}{Revision:\ \$Rev:\ 25842\ \$}}
+\DoxyCodeLine{00055\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#ifndef\ SEGGER\_RTT\_H}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_H}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}SEGGER\_RTT\_Conf.h"{}}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00064\ \textcolor{comment}{*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{*\ \ \ \ \ \ \ Defines,\ defaults}}
+\DoxyCodeLine{00066\ \textcolor{comment}{*}}
+\DoxyCodeLine{00067\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00068\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#ifndef\ RTT\_USE\_ASM}}
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ Some\ cores\ support\ out-\/of-\/order\ memory\ accesses\ (reordering\ of\ memory\ accesses\ in\ the\ core)}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ For\ such\ cores,\ we\ need\ to\ define\ a\ memory\ barrier\ to\ guarantee\ the\ order\ of\ certain\ accesses\ to\ the\ RTT\ ring\ buffers.}}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ Needed\ for:}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ \ \ Cortex-\/M7\ (ARMv7-\/M)}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ \ \ Cortex-\/M23\ (ARM-\/v8M)}}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ \ \ Cortex-\/M33\ (ARM-\/v8M)}}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ \ \ Cortex-\/A/R\ (ARM-\/v7A/R)}}
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ We\ do\ not\ explicitly\ check\ for\ "{}Embedded\ Studio"{}\ as\ the\ compiler\ in\ use\ determines\ what\ we\ support.}}
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//\ You\ can\ use\ an\ external\ toolchain\ like\ IAR\ inside\ ES.\ So\ there\ is\ no\ point\ in\ checking\ for\ "{}Embedded\ Studio"{}}}
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \#if\ (defined\ \_\_CROSSWORKS\_ARM)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Rowley\ Crossworks}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM\_ARCH\_7M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M3}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_7EM\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M4/M7}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_BASE\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M23}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_MAIN\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M33}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined(\_\_ARM\_ARCH\_8\_1M\_MAIN\_\_))\ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M85}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \#elif\ (defined\ \_\_ARMCC\_VERSION)}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ ARM\ compiler}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ ARM\ compiler\ V6.0\ and\ later\ is\ clang\ based.}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Our\ ASM\ part\ is\ compatible\ to\ clang.}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \#if\ (\_\_ARMCC\_VERSION\ >=\ 6000000)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM\_ARCH\_6M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M0\ /\ M1}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0\ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ No\ ASM\ support\ for\ this\ architecture}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_7M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M3}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_7EM\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M4/M7}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_BASE\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M23}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_MAIN\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M33}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8\_1M\_MAIN\_\_)\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M85}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \#elif\ ((defined\ \_\_ARM\_ARCH\_7A\_\_)\ ||\ (defined\ \_\_ARM\_ARCH\_7R\_\_))\ \ }\textcolor{comment}{//\ Cortex-\/A/R\ 32-\/bit\ ARMv7-\/A/R}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \#elif\ ((defined\ \_\_GNUC\_\_)\ ||\ (defined\ \_\_clang\_\_))}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ GCC\ /\ Clang}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ ARM\ 7/9:\ \_\_ARM\_ARCH\_5\_\_\ /\ \_\_ARM\_ARCH\_5E\_\_\ /\ \_\_ARM\_ARCH\_5T\_\_\ /\ \_\_ARM\_ARCH\_5T\_\_\ /\ \_\_ARM\_ARCH\_5TE\_\_}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM\_ARCH\_7M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M3}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_7EM\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M4/M7}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Only\ Cortex-\/M7\ needs\ a\ DMB\ but\ we\ cannot\ distinguish\ M4\ and\ M7\ here...}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_BASE\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M23}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8M\_MAIN\_\_)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M33}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \#elif\ (defined\ \_\_ARM\_ARCH\_8\_1M\_MAIN\_\_)\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M85}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \#elif\ ((defined\ \_\_ARM\_ARCH\_7A\_\_)\ ||\ (defined\ \_\_ARM\_ARCH\_7R\_\_))\ \ }\textcolor{comment}{//\ Cortex-\/A/R\ 32-\/bit\ ARMv7-\/A/R}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ RTT\_\_DMB()\ \_\_asm\ volatile\ ("{}dmb\(\backslash\)n"{}\ :\ :\ :);}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \#elif\ ((defined\ \_\_IASMARM\_\_)\ ||\ (defined\ \_\_ICCARM\_\_))}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ IAR\ assembler/compiler}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \#if\ (\_\_VER\_\_\ <\ 6300000)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ VOLATILE}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ VOLATILE\ volatile}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM7M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Needed\ for\ old\ versions\ that\ do\ not\ know\ the\ define\ yet}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM7M\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M3}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM7EM\_\_)}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM7EM\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M4/M7}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM8M\_BASELINE\_\_)}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM8M\_BASELINE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M23}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM8M\_MAINLINE\_\_)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM8M\_MAINLINE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/M33}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM8EM\_MAINLINE\_\_)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM8EM\_MAINLINE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/???}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 1}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM7A\_\_)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM7A\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/A\ 32-\/bit\ ARMv7-\/A}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ \#if\ (defined\ \_\_ARM7R\_\_)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \#if\ (\_\_CORE\_\_\ ==\ \_\_ARM7R\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Cortex-\/R\ 32-\/bit\ ARMv7-\/R}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \_CORE\_NEEDS\_DMB\ 1}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RTT\_\_DMB()\ asm\ VOLATILE\ ("{}DMB"{});}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00228\ \textcolor{comment}{//\ TBD:\ \_\_ARM8A\_\_\ =>\ Cortex-\/A\ 64-\/bit\ ARMv8-\/A}}
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ TBD:\ \_\_ARM8R\_\_\ =>\ Cortex-\/R\ 64-\/bit\ ARMv8-\/R}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ Other\ compilers}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CC\_HAS\_RTT\_ASM\_SUPPORT\ \ \ 0}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00237\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00238\ \ \ \textcolor{comment}{//\ If\ IDE\ and\ core\ support\ the\ ASM\ version,\ enable\ ASM\ version\ by\ default}}
+\DoxyCodeLine{00239\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \#ifndef\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Default\ for\ unknown\ cores}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \#if\ (\_CC\_HAS\_RTT\_ASM\_SUPPORT\ \&\&\ \_CORE\_HAS\_RTT\_ASM\_SUPPORT)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ \#define\ RTT\_USE\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1)}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ \#define\ RTT\_USE\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#ifndef\ \_CORE\_NEEDS\_DMB}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \#define\ \_CORE\_NEEDS\_DMB\ 0}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#ifndef\ RTT\_\_DMB}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \#if\ \_CORE\_NEEDS\_DMB}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}Don't\ know\ how\ to\ place\ inline\ assembly\ for\ DMB"{}}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \#define\ RTT\_\_DMB()}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#ifndef\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ (0)\ \ \ }\textcolor{comment}{//\ On\ most\ target\ systems\ where\ RTT\ is\ used,\ we\ do\ not\ have\ a\ CPU\ cache,\ therefore\ 0\ is\ a\ good\ default\ here}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#ifndef\ SEGGER\_RTT\_UNCACHED\_OFF}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \#if\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}SEGGER\_RTT\_UNCACHED\_OFF\ must\ be\ defined\ when\ setting\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ !=\ 0"{}}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNCACHED\_OFF\ (0)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#if\ RTT\_USE\_ASM}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \#if\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}RTT\_USE\_ASM\ is\ not\ available\ if\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ !=\ 0"{}}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#ifndef\ SEGGER\_RTT\_ASM\ \ }\textcolor{comment}{//\ defined\ when\ SEGGER\_RTT.h\ is\ included\ from\ assembly\ file}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00285\ \textcolor{comment}{*}}
+\DoxyCodeLine{00286\ \textcolor{comment}{*\ \ \ \ \ \ \ Defines,\ fixed}}
+\DoxyCodeLine{00287\ \textcolor{comment}{*}}
+\DoxyCodeLine{00288\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00289\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{comment}{//}}
+\DoxyCodeLine{00292\ \textcolor{comment}{//\ Determine\ how\ much\ we\ must\ pad\ the\ control\ block\ to\ make\ it\ a\ multiple\ of\ a\ cache\ line\ in\ size}}
+\DoxyCodeLine{00293\ \textcolor{comment}{//\ Assuming:\ U8\ =\ 1B}}
+\DoxyCodeLine{00294\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ U16\ =\ 2B}}
+\DoxyCodeLine{00295\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ U32\ =\ 4B}}
+\DoxyCodeLine{00296\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ U8/U16/U32*\ =\ 4B}}
+\DoxyCodeLine{00297\ \textcolor{comment}{//}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#if\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ \ \ \ }\textcolor{comment}{//\ Avoid\ division\ by\ zero\ in\ case\ we\ do\ not\ have\ any\ cache}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_\_ROUND\_UP\_2\_CACHE\_LINE\_SIZE(NumBytes)\ (((NumBytes\ +\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ -\/\ 1)\ /\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE)\ *\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE)}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_\_ROUND\_UP\_2\_CACHE\_LINE\_SIZE(NumBytes)\ (NumBytes)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_\_CB\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (16\ +\ 4\ +\ 4\ +\ (SEGGER\_RTT\_MAX\_NUM\_UP\_BUFFERS\ *\ 24)\ +\ (SEGGER\_RTT\_MAX\_NUM\_DOWN\_BUFFERS\ *\ 24))}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_\_CB\_PADDING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (SEGGER\_RTT\_\_ROUND\_UP\_2\_CACHE\_LINE\_SIZE(SEGGER\_RTT\_\_CB\_SIZE)\ -\/\ SEGGER\_RTT\_\_CB\_SIZE)}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00307\ \textcolor{comment}{*}}
+\DoxyCodeLine{00308\ \textcolor{comment}{*\ \ \ \ \ \ \ Types}}
+\DoxyCodeLine{00309\ \textcolor{comment}{*}}
+\DoxyCodeLine{00310\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00311\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{comment}{//}}
+\DoxyCodeLine{00314\ \textcolor{comment}{//\ Description\ for\ a\ circular\ buffer\ (also\ called\ "{}ring\ buffer"{})}}
+\DoxyCodeLine{00315\ \textcolor{comment}{//\ which\ is\ used\ as\ up-\/buffer\ (T-\/>H)}}
+\DoxyCodeLine{00316\ \textcolor{comment}{//}}
+\DoxyCodeLine{00317\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00318\ \ \ \textcolor{keyword}{const}\ \ \ \ \ \textcolor{keywordtype}{char}*\ \ \ \ sName;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional\ name.\ Standard\ names\ so\ far\ are:\ "{}Terminal"{},\ "{}SysView"{},\ "{}J-\/Scope\_t4i4"{}}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \ \ \ pBuffer;\ \ \ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ start\ of\ buffer}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ SizeOfBuffer;\ \ \textcolor{comment}{//\ Buffer\ size\ in\ bytes.\ Note\ that\ one\ byte\ is\ lost,\ as\ this\ implementation\ does\ not\ fill\ up\ the\ buffer\ in\ order\ to\ avoid\ the\ problem\ of\ being\ unable\ to\ distinguish\ between\ full\ and\ empty.}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ WrOff;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ of\ next\ item\ to\ be\ written\ by\ either\ target.}}
+\DoxyCodeLine{00322\ \ \ \textcolor{keyword}{volatile}\ \ \textcolor{keywordtype}{unsigned}\ RdOff;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ of\ next\ item\ to\ be\ read\ by\ host.\ Must\ be\ volatile\ since\ it\ may\ be\ modified\ by\ host.}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ Flags;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contains\ configuration\ flags.\ Flags[31:24]\ are\ used\ for\ validity\ check\ and\ must\ be\ zero.\ Flags[23:2]\ are\ reserved\ for\ future\ use.\ Flags[1:0]\ =\ RTT\ operating\ mode.}}
+\DoxyCodeLine{00324\ \}\ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___u_p}{SEGGER\_RTT\_BUFFER\_UP}};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{comment}{//}}
+\DoxyCodeLine{00327\ \textcolor{comment}{//\ Description\ for\ a\ circular\ buffer\ (also\ called\ "{}ring\ buffer"{})}}
+\DoxyCodeLine{00328\ \textcolor{comment}{//\ which\ is\ used\ as\ down-\/buffer\ (H-\/>T)}}
+\DoxyCodeLine{00329\ \textcolor{comment}{//}}
+\DoxyCodeLine{00330\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00331\ \ \ \textcolor{keyword}{const}\ \ \ \ \ \textcolor{keywordtype}{char}*\ \ \ \ sName;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional\ name.\ Standard\ names\ so\ far\ are:\ "{}Terminal"{},\ "{}SysView"{},\ "{}J-\/Scope\_t4i4"{}}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \ \ \ pBuffer;\ \ \ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ start\ of\ buffer}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ SizeOfBuffer;\ \ \textcolor{comment}{//\ Buffer\ size\ in\ bytes.\ Note\ that\ one\ byte\ is\ lost,\ as\ this\ implementation\ does\ not\ fill\ up\ the\ buffer\ in\ order\ to\ avoid\ the\ problem\ of\ being\ unable\ to\ distinguish\ between\ full\ and\ empty.}}
+\DoxyCodeLine{00334\ \ \ \textcolor{keyword}{volatile}\ \ \textcolor{keywordtype}{unsigned}\ WrOff;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ of\ next\ item\ to\ be\ written\ by\ host.\ Must\ be\ volatile\ since\ it\ may\ be\ modified\ by\ host.}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ RdOff;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ of\ next\ item\ to\ be\ read\ by\ target\ (down-\/buffer).}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ Flags;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contains\ configuration\ flags.\ Flags[31:24]\ are\ used\ for\ validity\ check\ and\ must\ be\ zero.\ Flags[23:2]\ are\ reserved\ for\ future\ use.\ Flags[1:0]\ =\ RTT\ operating\ mode.}}
+\DoxyCodeLine{00337\ \}\ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___d_o_w_n}{SEGGER\_RTT\_BUFFER\_DOWN}};}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{comment}{//}}
+\DoxyCodeLine{00340\ \textcolor{comment}{//\ RTT\ control\ block\ which\ describes\ the\ number\ of\ buffers\ available}}
+\DoxyCodeLine{00341\ \textcolor{comment}{//\ as\ well\ as\ the\ configuration\ for\ each\ buffer}}
+\DoxyCodeLine{00342\ \textcolor{comment}{//}}
+\DoxyCodeLine{00343\ \textcolor{comment}{//}}
+\DoxyCodeLine{00344\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00345\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ acID[16];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialized\ to\ "{}SEGGER\ RTT"{}}}
+\DoxyCodeLine{00346\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MaxNumUpBuffers;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialized\ to\ SEGGER\_RTT\_MAX\_NUM\_UP\_BUFFERS\ (type.\ 2)}}
+\DoxyCodeLine{00347\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MaxNumDownBuffers;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialized\ to\ SEGGER\_RTT\_MAX\_NUM\_DOWN\_BUFFERS\ (type.\ 2)}}
+\DoxyCodeLine{00348\ \ \ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___u_p}{SEGGER\_RTT\_BUFFER\_UP}}\ \ \ \ aUp[SEGGER\_RTT\_MAX\_NUM\_UP\_BUFFERS];\ \ \ \ \ \ \ \textcolor{comment}{//\ Up\ buffers,\ transferring\ information\ up\ from\ target\ via\ debug\ probe\ to\ host}}
+\DoxyCodeLine{00349\ \ \ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___d_o_w_n}{SEGGER\_RTT\_BUFFER\_DOWN}}\ \ aDown[SEGGER\_RTT\_MAX\_NUM\_DOWN\_BUFFERS];\ \ \ \textcolor{comment}{//\ Down\ buffers,\ transferring\ information\ down\ from\ host\ via\ debug\ probe\ to\ target}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#if\ SEGGER\_RTT\_\_CB\_PADDING}}
+\DoxyCodeLine{00351\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ aDummy[SEGGER\_RTT\_\_CB\_PADDING];}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00353\ \}\ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___c_b}{SEGGER\_RTT\_CB}};}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00356\ \textcolor{comment}{*}}
+\DoxyCodeLine{00357\ \textcolor{comment}{*\ \ \ \ \ \ \ Global\ data}}
+\DoxyCodeLine{00358\ \textcolor{comment}{*}}
+\DoxyCodeLine{00359\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00360\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00361\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_s_e_g_g_e_r___r_t_t___c_b}{SEGGER\_RTT\_CB}}\ \_SEGGER\_RTT;}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00364\ \textcolor{comment}{*}}
+\DoxyCodeLine{00365\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ API\ functions}}
+\DoxyCodeLine{00366\ \textcolor{comment}{*}}
+\DoxyCodeLine{00367\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00368\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00370\ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00372\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_AllocDownBuffer\ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName,\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00373\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_AllocUpBuffer\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName,\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00374\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_ConfigUpBuffer\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName,\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00375\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_ConfigDownBuffer\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName,\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00376\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_GetKey\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00377\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_HasData\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex);}
+\DoxyCodeLine{00378\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_HasKey\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00379\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_HasDataUp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex);}
+\DoxyCodeLine{00380\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SEGGER\_RTT\_Init\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00381\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_Read\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize);}
+\DoxyCodeLine{00382\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_ReadNoLock\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ pData,\ \ \ \textcolor{keywordtype}{unsigned}\ BufferSize);}
+\DoxyCodeLine{00383\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_SetNameDownBuffer\ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName);}
+\DoxyCodeLine{00384\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_SetNameUpBuffer\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sName);}
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_SetFlagsDownBuffer\ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00386\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_SetFlagsUpBuffer\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{unsigned}\ Flags);}
+\DoxyCodeLine{00387\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_WaitKey\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00388\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_Write\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00389\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_WriteNoLock\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00390\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_WriteSkipNoLock\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00391\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_ASM\_WriteSkipNoLock\ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00392\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_WriteString\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00393\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SEGGER\_RTT\_WriteWithOverwriteNoLock(\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00394\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_PutChar\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00395\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_PutCharSkip\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00396\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_PutCharSkipNoLock\ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00397\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_GetAvailWriteSpace\ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex);}
+\DoxyCodeLine{00398\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_GetBytesInBuffer\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex);}
+\DoxyCodeLine{00399\ \textcolor{comment}{//}}
+\DoxyCodeLine{00400\ \textcolor{comment}{//\ Function\ macro\ for\ performance\ optimization}}
+\DoxyCodeLine{00401\ \textcolor{comment}{//}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ \ \ \ \ \ SEGGER\_RTT\_HASDATA(n)\ \ \ \ \ \ \ (((SEGGER\_RTT\_BUFFER\_DOWN*)((uintptr\_t)\&\_SEGGER\_RTT.aDown[n]\ +\ SEGGER\_RTT\_UNCACHED\_OFF))-\/>WrOff\ -\/\ ((SEGGER\_RTT\_BUFFER\_DOWN*)((uintptr\_t)\&\_SEGGER\_RTT.aDown[n]\ +\ SEGGER\_RTT\_UNCACHED\_OFF))-\/>RdOff)}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#if\ RTT\_USE\_ASM}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_WriteSkipNoLock\ \ SEGGER\_RTT\_ASM\_WriteSkipNoLock}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00409\ \textcolor{comment}{*}}
+\DoxyCodeLine{00410\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ transfer\ functions\ to\ send\ RTT\ data\ via\ other\ channels.}}
+\DoxyCodeLine{00411\ \textcolor{comment}{*}}
+\DoxyCodeLine{00412\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00413\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00414\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_ReadUpBuffer\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ BufferSize);}
+\DoxyCodeLine{00415\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_ReadUpBufferNoLock\ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keywordtype}{void}*\ pData,\ \textcolor{keywordtype}{unsigned}\ BufferSize);}
+\DoxyCodeLine{00416\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_WriteDownBuffer\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00417\ \textcolor{keywordtype}{unsigned}\ \ \ \ \ SEGGER\_RTT\_WriteDownBufferNoLock\ \ \ (\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ NumBytes);}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ \ \ \ \ \ SEGGER\_RTT\_HASDATA\_UP(n)\ \ \ \ (((SEGGER\_RTT\_BUFFER\_UP*)((uintptr\_t)\&\_SEGGER\_RTT.aUp[n]\ +\ SEGGER\_RTT\_UNCACHED\_OFF))-\/>WrOff\ -\/\ ((SEGGER\_RTT\_BUFFER\_UP*)((uintptr\_t)\&\_SEGGER\_RTT.aUp[n]\ +\ SEGGER\_RTT\_UNCACHED\_OFF))-\/>RdOff)\ \ \ }\textcolor{comment}{//\ Access\ uncached\ to\ make\ sure\ we\ see\ changes\ made\ by\ the\ J-\/Link\ side\ and\ all\ of\ our\ changes\ go\ into\ HW\ directly}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00422\ \textcolor{comment}{*}}
+\DoxyCodeLine{00423\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ "{}Terminal"{}\ API\ functions}}
+\DoxyCodeLine{00424\ \textcolor{comment}{*}}
+\DoxyCodeLine{00425\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00426\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{int}\ \ \ \ \ SEGGER\_RTT\_SetTerminal\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ TerminalId);}
+\DoxyCodeLine{00428\ \textcolor{keywordtype}{int}\ \ \ \ \ SEGGER\_RTT\_TerminalOut\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ TerminalId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00431\ \textcolor{comment}{*}}
+\DoxyCodeLine{00432\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ printf\ functions\ (require\ SEGGER\_RTT\_printf.c)}}
+\DoxyCodeLine{00433\ \textcolor{comment}{*}}
+\DoxyCodeLine{00434\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00435\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00436\ \textcolor{keywordtype}{int}\ SEGGER\_RTT\_printf(\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ sFormat,\ ...);}
+\DoxyCodeLine{00437\ \textcolor{keywordtype}{int}\ SEGGER\_RTT\_vprintf(\textcolor{keywordtype}{unsigned}\ BufferIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ sFormat,\ va\_list\ *\ pParamList);}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00440\ \ \ \}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifndef(SEGGER\_RTT\_ASM)}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{comment}{//}}
+\DoxyCodeLine{00446\ \textcolor{comment}{//\ For\ some\ environments,\ NULL\ may\ not\ be\ defined\ until\ certain\ headers\ are\ included}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#ifndef\ NULL}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\ \ \#define\ NULL\ \ ((void*)0)}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00453\ \textcolor{comment}{*}}
+\DoxyCodeLine{00454\ \textcolor{comment}{*\ \ \ \ \ \ \ Defines}}
+\DoxyCodeLine{00455\ \textcolor{comment}{*}}
+\DoxyCodeLine{00456\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00457\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \textcolor{comment}{//}}
+\DoxyCodeLine{00460\ \textcolor{comment}{//\ Operating\ modes.\ Define\ behavior\ if\ buffer\ is\ full\ (not\ enough\ space\ for\ entire\ message)}}
+\DoxyCodeLine{00461\ \textcolor{comment}{//}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_MODE\_NO\_BLOCK\_SKIP\ \ \ \ \ \ \ \ \ (0)\ \ \ \ \ }\textcolor{comment}{//\ Skip.\ Do\ not\ block,\ output\ nothing.\ (Default)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_MODE\_NO\_BLOCK\_TRIM\ \ \ \ \ \ \ \ \ (1)\ \ \ \ \ }\textcolor{comment}{//\ Trim:\ Do\ not\ block,\ output\ as\ much\ as\ fits.}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_MODE\_BLOCK\_IF\_FIFO\_FULL\ \ \ \ (2)\ \ \ \ \ }\textcolor{comment}{//\ Block:\ Wait\ until\ there\ is\ space\ in\ the\ buffer.}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_MODE\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (3)}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{comment}{//}}
+\DoxyCodeLine{00468\ \textcolor{comment}{//\ Control\ sequences,\ based\ on\ ANSI.}}
+\DoxyCodeLine{00469\ \textcolor{comment}{//\ Can\ be\ used\ to\ control\ color,\ and\ clear\ the\ screen}}
+\DoxyCodeLine{00470\ \textcolor{comment}{//}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_RESET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[0m"{}\ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Reset\ to\ default\ colors}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_CLEAR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2J"{}\ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Clear\ screen,\ reposition\ cursor\ to\ top\ left}}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BLACK\ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;30m"{}}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_RED\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;31m"{}}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_GREEN\ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;32m"{}}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_YELLOW\ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;33m"{}}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BLUE\ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;34m"{}}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_MAGENTA\ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;35m"{}}}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_CYAN\ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;36m"{}}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_WHITE\ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[2;37m"{}}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_BLACK\ \ \ \ "{}\(\backslash\)x1B[1;30m"{}}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_RED\ \ \ \ \ \ "{}\(\backslash\)x1B[1;31m"{}}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_GREEN\ \ \ \ "{}\(\backslash\)x1B[1;32m"{}}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_YELLOW\ \ \ "{}\(\backslash\)x1B[1;33m"{}}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_BLUE\ \ \ \ \ "{}\(\backslash\)x1B[1;34m"{}}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_MAGENTA\ \ "{}\(\backslash\)x1B[1;35m"{}}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_CYAN\ \ \ \ \ "{}\(\backslash\)x1B[1;36m"{}}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_TEXT\_BRIGHT\_WHITE\ \ \ \ "{}\(\backslash\)x1B[1;37m"{}}}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BLACK\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;40m"{}}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_RED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;41m"{}}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_GREEN\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;42m"{}}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_YELLOW\ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;43m"{}}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BLUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;44m"{}}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_MAGENTA\ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;45m"{}}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_CYAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;46m"{}}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_WHITE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[24;47m"{}}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_BLACK\ \ \ \ \ \ "{}\(\backslash\)x1B[4;40m"{}}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_RED\ \ \ \ \ \ \ \ "{}\(\backslash\)x1B[4;41m"{}}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_GREEN\ \ \ \ \ \ "{}\(\backslash\)x1B[4;42m"{}}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_YELLOW\ \ \ \ \ "{}\(\backslash\)x1B[4;43m"{}}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_BLUE\ \ \ \ \ \ \ "{}\(\backslash\)x1B[4;44m"{}}}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_MAGENTA\ \ \ \ "{}\(\backslash\)x1B[4;45m"{}}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_CYAN\ \ \ \ \ \ \ "{}\(\backslash\)x1B[4;46m"{}}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#define\ RTT\_CTRL\_BG\_BRIGHT\_WHITE\ \ \ \ \ \ "{}\(\backslash\)x1B[4;47m"{}}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \textcolor{comment}{/***************************\ End\ of\ file\ ****************************/}}
+
+\end{DoxyCode}

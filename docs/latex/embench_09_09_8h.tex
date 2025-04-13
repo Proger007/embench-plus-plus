@@ -1,0 +1,22 @@
+\doxysection{core/embench++.h File Reference}
+\hypertarget{embench_09_09_8h}{}\label{embench_09_09_8h}\index{core/embench++.h@{core/embench++.h}}
+
+
+Header file defining the benchmarking framework for embedded systems.  
+
+
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include "{}concepts.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classembpp_1_1_benchmark}{embpp\+::\+Benchmark$<$ N, Metric, FUT $>$}}
+\begin{DoxyCompactList}\small\item\em Class template for benchmarking functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file defining the benchmarking framework for embedded systems. 
+
+This header provides the {\ttfamily Benchmark} class template for running benchmarks on functions, with minimal overhead using a metric system. The framework uses template metaprogramming to inline the function under test (FUT) and optimize the hot path. 

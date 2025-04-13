@@ -1,0 +1,85 @@
+\doxysection{embpp\+::Benchmark\texorpdfstring{$<$}{<} N, Metric, FUT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classembpp_1_1_benchmark}{}\label{classembpp_1_1_benchmark}\index{embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}}
+
+
+Class template for benchmarking functions.  
+
+
+
+
+{\ttfamily \#include $<$embench++.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classembpp_1_1_benchmark_a3489cbca8d0129ede045dc1a8c9a9c7f}{Benchmark}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the benchmark for the specified function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Results\+Processor... Processors$>$ }\\void \mbox{\hyperlink{classembpp_1_1_benchmark_a217d59463595aa6fb7fe67d46efbd8bb}{process\+\_\+results}} (Processors \&... proc)
+\begin{DoxyCompactList}\small\item\em Processes the results for the specified output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$std\+::size\+\_\+t N, Metricable Metric, auto FUT$>$\newline
+class embpp\+::\+Benchmark$<$ N, Metric, FUT $>$}
+Class template for benchmarking functions. 
+
+The {\ttfamily \doxylink{classembpp_1_1_benchmark}{Benchmark}} class runs a function under test (FUT) multiple times while measuring its performance using the provided metric. The metric setup is done before the benchmark starts, and the results are stored in an array.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & The number of iterations for the benchmark. \\
+\hline
+{\em Metric} & A type satisfying the {\ttfamily \doxylink{conceptembpp_1_1_metricable}{Metricable}} concept. \\
+\hline
+{\em FUT} & The function under test (FUT), passed as a template parameter. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classembpp_1_1_benchmark_a3489cbca8d0129ede045dc1a8c9a9c7f}\index{embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}}
+\doxysubsubsection{\texorpdfstring{Benchmark()}{Benchmark()}}
+{\footnotesize\ttfamily \label{classembpp_1_1_benchmark_a3489cbca8d0129ede045dc1a8c9a9c7f} 
+template$<$std\+::size\+\_\+t N, Metricable Metric, auto FUT$>$ \\
+\mbox{\hyperlink{classembpp_1_1_benchmark}{embpp\+::\+Benchmark}}$<$ N, Metric, FUT $>$\+::\+Benchmark (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+Constructs a {\ttfamily \doxylink{classembpp_1_1_benchmark}{Benchmark}} object. The actual benchmarking is done in the {\ttfamily \doxylink{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683}{run()}} method. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classembpp_1_1_benchmark_a217d59463595aa6fb7fe67d46efbd8bb}\index{embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}!process\_results@{process\_results}}
+\index{process\_results@{process\_results}!embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}}
+\doxysubsubsection{\texorpdfstring{process\_results()}{process\_results()}}
+{\footnotesize\ttfamily \label{classembpp_1_1_benchmark_a217d59463595aa6fb7fe67d46efbd8bb} 
+template$<$std\+::size\+\_\+t N, Metricable Metric, auto FUT$>$ \\
+template$<$Results\+Processor... Processors$>$ \\
+void \mbox{\hyperlink{classembpp_1_1_benchmark}{embpp\+::\+Benchmark}}$<$ N, Metric, FUT $>$\+::process\+\_\+results (\begin{DoxyParamCaption}\item[{Processors \&...}]{proc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Processes the results for the specified output. 
+
+Processes the results obtained from the benchmark run to prepare user defined output. This can include calculating simple statistics (Min\+Max\+Avg, Mean\+Std\+Dev, Histogram etc), prettify raw data, or performing custom calculations. \Hypertarget{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683}\index{embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}!run@{run}}
+\index{run@{run}!embpp::Benchmark$<$ N, Metric, FUT $>$@{embpp::Benchmark$<$ N, Metric, FUT $>$}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683} 
+template$<$std\+::size\+\_\+t N, Metricable Metric, auto FUT$>$ \\
+void \mbox{\hyperlink{classembpp_1_1_benchmark}{embpp\+::\+Benchmark}}$<$ N, Metric, FUT $>$\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Runs the benchmark for the specified function. 
+
+The {\ttfamily \doxylink{classembpp_1_1_benchmark_a00eb7f7a3bb884a0e38a01c25be76683}{run()}} method first calls the {\ttfamily setup()} method of the metric to initialize the metric system. It then executes the function under test (FUT) {\ttfamily N} times, recording the start and end metric values around each execution to calculate the duration.
+
+The results are stored in the {\ttfamily results} array. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{embench_09_09_8h}{embench++.\+h}}\end{DoxyCompactItemize}

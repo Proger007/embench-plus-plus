@@ -1,0 +1,44 @@
+\doxysection{cyccnt.\+h}
+\hypertarget{cyccnt_8h_source}{}\label{cyccnt_8h_source}\index{metrics/cpu/cyccnt/cyccnt.h@{metrics/cpu/cyccnt/cyccnt.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexey\ on\ 15.09.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ EMBENCH\_INCLUDE\_METRICS\_CORE\_CYCCNT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ EMBENCH\_INCLUDE\_METRICS\_CORE\_CYCCNT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}core\_cm4.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }embpp::metrics::core::cyccnt\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classembpp_1_1metrics_1_1core_1_1cyccnt_1_1_cycle_counter}{CycleCounter}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setup()}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(CoreDebug-\/>DEMCR\ \&\ CoreDebug\_DEMCR\_TRCENA\_Msk))}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ CoreDebug-\/>DEMCR\ |=\ CoreDebug\_DEMCR\_TRCENA\_Msk;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ DWT-\/>CYCCNT\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ DWT-\/>CTRL\ |=\ DWT\_CTRL\_CYCCNTENA\_Msk;}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ get\_metric\_start()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DWT-\/>CYCCNT;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\ get\_metric\_end()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DWT-\/>CYCCNT\ -\/\ 2;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \}\ \ \textcolor{comment}{//\ namespace\ embpp::metrics::cpu::cyccnt}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//EMBENCH\_INCLUDE\_METRICS\_CORE\_CYCCNT\_H}}
+
+\end{DoxyCode}

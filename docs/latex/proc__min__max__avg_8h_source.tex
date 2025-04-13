@@ -1,0 +1,32 @@
+\doxysection{proc\+\_\+min\+\_\+max\+\_\+avg.\+h}
+\hypertarget{proc__min__max__avg_8h_source}{}\label{proc__min__max__avg_8h_source}\index{proc/min\_max\_avg/proc\_min\_max\_avg.h@{proc/min\_max\_avg/proc\_min\_max\_avg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexey\ on\ 02.11.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ EMBENCH\_INCLUDE\_PROC\_PROC\_MIN\_MAX\_AVG\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ EMBENCH\_INCLUDE\_PROC\_PROC\_MIN\_MAX\_AVG\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <span>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }embpp::proc}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classembpp_1_1proc_1_1_min_max_avg}{MinMaxAvg}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ uint32\_t\ min\ \{0\};}
+\DoxyCodeLine{00017\ \ \ \ \ uint32\_t\ max\ \{0\};}
+\DoxyCodeLine{00018\ \ \ \ \ uint32\_t\ avg\ \{0\};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ text[128]\ \{\};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ process(std::span<const\ std::uint32\_t>\ results);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ c\_str()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//EMBENCH\_INCLUDE\_PROC\_PROC\_MIN\_MAX\_AVG\_H}}
+
+\end{DoxyCode}

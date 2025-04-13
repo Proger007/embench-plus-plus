@@ -1,0 +1,31 @@
+\doxysection{embpp\+::Printer\+Impl Concept Reference}
+\hypertarget{conceptembpp_1_1_printer_impl}{}\label{conceptembpp_1_1_printer_impl}\index{embpp::PrinterImpl@{embpp::PrinterImpl}}
+
+
+Concept to define a Printer implementation to output the results after processing.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptembpp_1_1_printer_impl}{embpp::PrinterImpl}}\ =\ \ \textcolor{keyword}{requires}(T\ t,\ \textcolor{keywordtype}{char}\ *s)\ \{}
+\DoxyCodeLine{\{\ T::instance()\ \}\ -\/>\ std::same\_as<T\&>;}
+\DoxyCodeLine{\{\ T::instance().print(s)\ \}\ -\/>\ std::same\_as<void>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept to define a Printer implementation to output the results after processing. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/ Class implementing print method \\
+\hline
+\end{DoxyTemplParams}

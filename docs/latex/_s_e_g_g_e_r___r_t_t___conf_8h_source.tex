@@ -1,0 +1,435 @@
+\doxysection{SEGGER\+\_\+\+RTT\+\_\+\+Conf.\+h}
+\hypertarget{_s_e_g_g_e_r___r_t_t___conf_8h_source}{}\label{_s_e_g_g_e_r___r_t_t___conf_8h_source}\index{printers/rtt/segger\_rtt/Config/SEGGER\_RTT\_Conf.h@{printers/rtt/segger\_rtt/Config/SEGGER\_RTT\_Conf.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SEGGER\ Microcontroller\ GmbH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ Embedded\ Experts\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ (c)\ 1995\ -\/\ 2021\ SEGGER\ Microcontroller\ GmbH\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ \ \ \ \ \ \ www.segger.com\ \ \ \ \ Support:\ support@segger.com\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ \ \ \ \ \ \ SEGGER\ RTT\ *\ Real\ Time\ Transfer\ for\ embedded\ targets\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ All\ rights\ reserved.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*\ SEGGER\ strongly\ recommends\ to\ not\ make\ any\ changes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*\ to\ or\ modify\ the\ source\ code\ of\ this\ software\ in\ order\ to\ stay\ \ \ \ \ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ compatible\ with\ the\ RTT\ protocol\ and\ J-\/Link.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*\ without\ modification,\ are\ permitted\ provided\ that\ the\ following\ \ \ \ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ condition\ is\ met:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ o\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ \ \ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ \ \ notice,\ this\ condition\ and\ the\ following\ disclaimer.\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*\ CONTRIBUTORS\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{*\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{*\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{*\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ SEGGER\ Microcontroller\ BE\ LIABLE\ FOR\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{*\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ \ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{*\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ \ \ \ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ \ \ \ \ \ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{*\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{*\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ \ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{*\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ \ \ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*\ DAMAGE.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00044\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ version:\ 7.98e\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}}
+\DoxyCodeLine{00049\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/END-\/OF-\/HEADER-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00050\ \textcolor{comment}{File\ \ \ \ :\ SEGGER\_RTT\_Conf.h}}
+\DoxyCodeLine{00051\ \textcolor{comment}{Purpose\ :\ Implementation\ of\ SEGGER\ real-\/time\ transfer\ (RTT)\ which}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ allows\ real-\/time\ communication\ on\ targets\ which\ support}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ debugger\ memory\ accesses\ while\ the\ CPU\ is\ running.}}
+\DoxyCodeLine{00054\ \textcolor{comment}{Revision:\ \$Rev:\ 24316\ \$}}
+\DoxyCodeLine{00055\ \textcolor{comment}{}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#ifndef\ SEGGER\_RTT\_CONF\_H}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_CONF\_H}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifdef\ \_\_IAR\_SYSTEMS\_ICC\_\_}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \#include\ <intrinsics.h>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00066\ \textcolor{comment}{*}}
+\DoxyCodeLine{00067\ \textcolor{comment}{*\ \ \ \ \ \ \ Defines,\ configurable}}
+\DoxyCodeLine{00068\ \textcolor{comment}{*}}
+\DoxyCodeLine{00069\ \textcolor{comment}{**********************************************************************}}
+\DoxyCodeLine{00070\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ Take\ in\ and\ set\ to\ correct\ values\ for\ Cortex-\/A\ systems\ with\ CPU\ cache}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\#define\ SEGGER\_RTT\_CPU\_CACHE\_LINE\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ (32)\ \ \ \ \ \ \ \ \ \ //\ Largest\ cache\ line\ size\ (in\ bytes)\ in\ the\ current\ system}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\#define\ SEGGER\_RTT\_UNCACHED\_OFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0xFB000000)\ \ //\ Address\ alias\ where\ RTT\ CB\ and\ buffers\ can\ be\ accessed\ uncached}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ Most\ common\ case:}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ Up-\/channel\ 0:\ RTT}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ Up-\/channel\ 1:\ SystemView}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_MAX\_NUM\_UP\_BUFFERS}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_MAX\_NUM\_UP\_BUFFERS\ \ \ \ \ \ \ \ \ \ \ \ \ (3)\ \ \ \ \ }\textcolor{comment}{//\ Max.\ number\ of\ up-\/buffers\ (T-\/>H)\ available\ on\ this\ target\ \ \ \ (Default:\ 3)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ Most\ common\ case:}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ Down-\/channel\ 0:\ RTT}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ Down-\/channel\ 1:\ SystemView}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_MAX\_NUM\_DOWN\_BUFFERS}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_MAX\_NUM\_DOWN\_BUFFERS\ \ \ \ \ \ \ \ \ \ \ (3)\ \ \ \ \ }\textcolor{comment}{//\ Max.\ number\ of\ down-\/buffers\ (H-\/>T)\ available\ on\ this\ target\ \ (Default:\ 3)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifndef\ \ \ BUFFER\_SIZE\_UP}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \#define\ BUFFER\_SIZE\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1024)\ \ }\textcolor{comment}{//\ Size\ of\ the\ buffer\ for\ terminal\ output\ of\ target,\ up\ to\ host\ (Default:\ 1k)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#ifndef\ \ \ BUFFER\_SIZE\_DOWN}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \#define\ BUFFER\_SIZE\_DOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (16)\ \ \ \ }\textcolor{comment}{//\ Size\ of\ the\ buffer\ for\ terminal\ input\ to\ target\ from\ host\ (Usually\ keyboard\ input)\ (Default:\ 16)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_PRINTF\_BUFFER\_SIZE}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_PRINTF\_BUFFER\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ (64u)\ \ \ \ }\textcolor{comment}{//\ Size\ of\ buffer\ for\ RTT\ printf\ to\ bulk-\/send\ chars\ via\ RTT\ \ \ \ \ (Default:\ 64)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_MODE\_DEFAULT}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_MODE\_DEFAULT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SEGGER\_RTT\_MODE\_NO\_BLOCK\_SKIP\ }\textcolor{comment}{//\ Mode\ for\ pre-\/initialized\ terminal\ channel\ (buffer\ 0)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00111\ \textcolor{comment}{*}}
+\DoxyCodeLine{00112\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ memcpy\ configuration}}
+\DoxyCodeLine{00113\ \textcolor{comment}{*}}
+\DoxyCodeLine{00114\ \textcolor{comment}{*\ \ \ \ \ \ \ memcpy()\ is\ good\ for\ large\ amounts\ of\ data,}}
+\DoxyCodeLine{00115\ \textcolor{comment}{*\ \ \ \ \ \ \ but\ the\ overhead\ is\ big\ for\ small\ amounts,\ which\ are\ usually\ stored\ via\ RTT.}}
+\DoxyCodeLine{00116\ \textcolor{comment}{*\ \ \ \ \ \ \ With\ SEGGER\_RTT\_MEMCPY\_USE\_BYTELOOP\ a\ simple\ byte\ loop\ can\ be\ used\ instead.}}
+\DoxyCodeLine{00117\ \textcolor{comment}{*}}
+\DoxyCodeLine{00118\ \textcolor{comment}{*\ \ \ \ \ \ \ SEGGER\_RTT\_MEMCPY()\ can\ be\ used\ to\ replace\ standard\ memcpy()\ in\ RTT\ functions.}}
+\DoxyCodeLine{00119\ \textcolor{comment}{*\ \ \ \ \ \ \ This\ is\ may\ be\ required\ with\ memory\ access\ restrictions,}}
+\DoxyCodeLine{00120\ \textcolor{comment}{*\ \ \ \ \ \ \ such\ as\ on\ Cortex-\/A\ devices\ with\ MMU.}}
+\DoxyCodeLine{00121\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_MEMCPY\_USE\_BYTELOOP}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_MEMCPY\_USE\_BYTELOOP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ }\textcolor{comment}{//\ 0:\ Use\ memcpy/SEGGER\_RTT\_MEMCPY,\ 1:\ Use\ a\ simple\ byte-\/loop}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ Example\ definition\ of\ SEGGER\_RTT\_MEMCPY\ to\ external\ memcpy\ with\ GCC\ toolchains\ and\ Cortex-\/A\ targets}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\#if\ ((defined\ \_\_SES\_ARM)\ ||\ (defined\ \_\_CROSSWORKS\_ARM)\ ||\ (defined\ \_\_GNUC\_\_))\ \&\&\ (defined\ (\_\_ARM\_ARCH\_7A\_\_))}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ \ \#define\ SEGGER\_RTT\_MEMCPY(pDest,\ pSrc,\ NumBytes)\ \ \ \ \ \ SEGGER\_memcpy((pDest),\ (pSrc),\ (NumBytes))}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{//}}
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ Target\ is\ not\ allowed\ to\ perform\ other\ RTT\ operations\ while\ string\ still\ has\ not\ been\ stored\ completely.}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ Otherwise\ we\ would\ probably\ end\ up\ with\ a\ mixed\ string\ in\ the\ buffer.}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ If\ using\ \ RTT\ from\ within\ interrupts,\ multiple\ tasks\ or\ multi\ processors,\ define\ the\ SEGGER\_RTT\_LOCK()\ and\ SEGGER\_RTT\_UNLOCK()\ function\ here.}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//}}
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ can\ be\ used\ in\ the\ sample\ lock\ routines\ on\ Cortex-\/M3/4.}}
+\DoxyCodeLine{00138\ \textcolor{comment}{//\ Make\ sure\ to\ mask\ all\ interrupts\ which\ can\ send\ RTT\ data,\ i.e.\ generate\ SystemView\ events,\ or\ cause\ task\ switches.}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ When\ high-\/priority\ interrupts\ must\ not\ be\ masked\ while\ sending\ RTT\ data,\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ needs\ to\ be\ adjusted\ accordingly.}}
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ (Higher\ priority\ =\ lower\ priority\ number)}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ Default\ value\ for\ embOS:\ 128u}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ Default\ configuration\ in\ FreeRTOS:\ configMAX\_SYSCALL\_INTERRUPT\_PRIORITY:\ (\ configLIBRARY\_MAX\_SYSCALL\_INTERRUPT\_PRIORITY\ <<\ (8\ -\/\ configPRIO\_BITS)\ )}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ In\ case\ of\ doubt\ mask\ all\ interrupts:\ 1\ <<\ (8\ -\/\ BASEPRI\_PRIO\_BITS)\ i.e.\ 1\ <<\ 5\ when\ 3\ bits\ are\ implemented\ in\ NVIC}}
+\DoxyCodeLine{00144\ \textcolor{comment}{//\ or\ define\ SEGGER\_RTT\_LOCK()\ to\ completely\ disable\ interrupts.}}
+\DoxyCodeLine{00145\ \textcolor{comment}{//}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ \ \ \ \ \ \ \ \ (0x20)\ \ \ }\textcolor{comment}{//\ Interrupt\ priority\ to\ lock\ on\ SEGGER\_RTT\_LOCK\ on\ Cortex-\/M3/4\ (Default:\ 0x20)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00151\ \textcolor{comment}{*}}
+\DoxyCodeLine{00152\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ SEGGER\ Embedded\ Studio,}}
+\DoxyCodeLine{00153\ \textcolor{comment}{*\ \ \ \ \ \ \ Rowley\ CrossStudio\ and\ GCC}}
+\DoxyCodeLine{00154\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#if\ ((defined(\_\_SES\_ARM)\ ||\ defined(\_\_SES\_RISCV)\ ||\ defined(\_\_CROSSWORKS\_ARM)\ ||\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_clang\_\_))\ \&\&\ !defined\ (\_\_CC\_ARM)\ \&\&\ !defined(WIN32))}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \#if\ (defined(\_\_ARM\_ARCH\_6M\_\_)\ ||\ defined(\_\_ARM\_ARCH\_8M\_BASE\_\_))}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\ volatile\ ("{}mrs\ \ \ \%0,\ primask\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}movs\ \ r1,\ \#1\ \ \ \ \ \ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ \ \ primask,\ r1\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_asm\ volatile\ ("{}msr\ \ \ primask,\ \%0\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \#elif\ (defined(\_\_ARM\_ARCH\_7M\_\_)\ ||\ defined(\_\_ARM\_ARCH\_7EM\_\_)\ ||\ defined(\_\_ARM\_ARCH\_8M\_MAIN\_\_))}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ \ \ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ \ \ (0x20)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\ volatile\ ("{}mrs\ \ \ \%0,\ basepri\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mov\ \ \ r1,\ \%1\ \ \ \ \ \ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ \ \ basepri,\ r1\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}i"{}(SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY)\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_asm\ volatile\ ("{}msr\ \ \ basepri,\ \%0\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \#elif\ (defined(\_\_ARM\_ARCH\_7A\_\_)\ ||\ defined(\_\_ARM\_ARCH\_7R\_\_))}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\ volatile\ ("{}mrs\ r1,\ CPSR\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mov\ \%0,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}orr\ r1,\ r1,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ CPSR\_c,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \_\_asm\ volatile\ ("{}mov\ r0,\ \%0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mrs\ r1,\ CPSR\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bic\ r1,\ r1,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}and\ r0,\ r0,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}orr\ r1,\ r1,\ r0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ CPSR\_c,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r0"{},\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \#elif\ defined(\_\_riscv)\ ||\ defined(\_\_riscv\_xlen)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\ volatile\ ("{}csrr\ \ \%0,\ mstatus\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}csrci\ mstatus,\ 8\ \ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}andi\ \ \%0,\ \%0,\ \ 8\ \ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \ \_\_asm\ volatile\ ("{}csrr\ \ a1,\ mstatus\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}or\ \ \ \ \%0,\ \%0,\ a1\ \ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}csrs\ \ mstatus,\ \%0\ \ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}\ \ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}a1"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00243\ \textcolor{comment}{*}}
+\DoxyCodeLine{00244\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ IAR\ EWARM}}
+\DoxyCodeLine{00245\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#ifdef\ \_\_ICCARM\_\_}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \#if\ (defined\ (\_\_ARM6M\_\_)\ \ \ \ \ \ \ \ \ \ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM6M\_\_))\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\ \ \ \ \ \ (defined\ (\_\_ARM8M\_BASELINE\_\_)\ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM8M\_BASELINE\_\_))}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_\_get\_PRIMASK();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_set\_PRIMASK(1);}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_set\_PRIMASK(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\ \ \#elif\ (defined\ (\_\_ARM7EM\_\_)\ \ \ \ \ \ \ \ \ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM7EM\_\_))\ \ \ \ \ \ \ \ \ \ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (defined\ (\_\_ARM7M\_\_)\ \ \ \ \ \ \ \ \ \ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM7M\_\_))\ \ \ \ \ \ \ \ \ \ \ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (defined\ (\_\_ARM8M\_MAINLINE\_\_)\ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM8M\_MAINLINE\_\_))\ \ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (defined\ (\_\_ARM8M\_MAINLINE\_\_)\ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM8M\_MAINLINE\_\_))}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ \ \ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ \ \ (0x20)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_\_get\_BASEPRI();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_set\_BASEPRI(SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY);}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_set\_BASEPRI(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \#elif\ (defined\ (\_\_ARM7A\_\_)\ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM7A\_\_))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (defined\ (\_\_ARM7R\_\_)\ \&\&\ (\_\_CORE\_\_\ ==\ \_\_ARM7R\_\_))}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\ volatile\ ("{}mrs\ r1,\ CPSR\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mov\ \%0,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}orr\ r1,\ r1,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ CPSR\_c,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \_\_asm\ volatile\ ("{}mov\ r0,\ \%0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mrs\ r1,\ CPSR\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bic\ r1,\ r1,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}and\ r0,\ r0,\ \#0xC0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}orr\ r1,\ r1,\ r0\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}msr\ CPSR\_c,\ r1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}\ (\_SEGGER\_RTT\_\_LockState)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r0"{},\ "{}r1"{},\ "{}cc"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00298\ \textcolor{comment}{*}}
+\DoxyCodeLine{00299\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ IAR\ RX}}
+\DoxyCodeLine{00300\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#ifdef\ \_\_ICCRX\_\_}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ long\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_\_get\_interrupt\_state();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_disable\_interrupt();}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_set\_interrupt\_state(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00312\ \textcolor{comment}{*}}
+\DoxyCodeLine{00313\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ IAR\ RL78}}
+\DoxyCodeLine{00314\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#ifdef\ \_\_ICCRL78\_\_}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_istate\_t\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_\_get\_interrupt\_state();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_disable\_interrupt();}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_set\_interrupt\_state(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00326\ \textcolor{comment}{*}}
+\DoxyCodeLine{00327\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ KEIL\ ARM}}
+\DoxyCodeLine{00328\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#ifdef\ \_\_CC\_ARM}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \#if\ (defined\ \_\_TARGET\_ARCH\_6S\_M)}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ register\ unsigned\ char\ \_SEGGER\_RTT\_\_PRIMASK\ \_\_asm(\ "{}primask"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_SEGGER\_RTT\_\_PRIMASK;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_PRIMASK\ =\ 1u;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_SEGGER\_RTT\_\_PRIMASK\ =\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \#elif\ (defined(\_\_TARGET\_ARCH\_7\_M)\ ||\ defined(\_\_TARGET\_ARCH\_7E\_M))}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ \ \ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ \ \ (0x20)}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ register\ unsigned\ char\ BASEPRI\ \_\_asm(\ "{}basepri"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ BASEPRI;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BASEPRI\ =\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ BASEPRI\ =\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00359\ \textcolor{comment}{*}}
+\DoxyCodeLine{00360\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ TI\ ARM}}
+\DoxyCodeLine{00361\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#ifdef\ \_\_TI\_ARM\_\_}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_TI\_ARM\_V6M0\_\_)}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_\_get\_PRIMASK();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_set\_PRIMASK(1);}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_\_set\_PRIMASK(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\ \ \#elif\ (defined\ (\_\_TI\_ARM\_V7M3\_\_)\ ||\ defined\ (\_\_TI\_ARM\_V7M4\_\_))}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ \ \ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY\ \ \ (0x20)}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ int\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ \_set\_interrupt\_priority(SEGGER\_RTT\_MAX\_INTERRUPT\_PRIORITY);}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\ \ \ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \_set\_interrupt\_priority(\_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00385\ \textcolor{comment}{*}}
+\DoxyCodeLine{00386\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ CCRX}}
+\DoxyCodeLine{00387\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#ifdef\ \_\_RX}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\ \ \#include\ <machine.h>}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned\ long\ \_SEGGER\_RTT\_\_LockState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_SEGGER\_RTT\_\_LockState\ =\ get\_psw()\ \&\ 0x010000;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clrpsw\_i();}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ set\_psw(get\_psw()\ |\ \_SEGGER\_RTT\_\_LockState);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00400\ \textcolor{comment}{*}}
+\DoxyCodeLine{00401\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ for\ embOS\ Simulation\ on\ Windows}}
+\DoxyCodeLine{00402\ \textcolor{comment}{*\ \ \ \ \ \ \ (Can\ also\ be\ used\ for\ generic\ RTT\ locking\ with\ embOS)}}
+\DoxyCodeLine{00403\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#if\ defined(WIN32)\ ||\ defined(SEGGER\_RTT\_LOCK\_EMBOS)}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keywordtype}{void}\ OS\_SIM\_EnterCriticalSection(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00407\ \textcolor{keywordtype}{void}\ OS\_SIM\_LeaveCriticalSection(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_LOCK()\ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OS\_SIM\_EnterCriticalSection();}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \ \ \ \ OS\_SIM\_LeaveCriticalSection();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{comment}{/*********************************************************************}}
+\DoxyCodeLine{00417\ \textcolor{comment}{*}}
+\DoxyCodeLine{00418\ \textcolor{comment}{*\ \ \ \ \ \ \ RTT\ lock\ configuration\ fallback}}
+\DoxyCodeLine{00419\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_LOCK}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_LOCK()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Lock\ RTT\ (nestable)\ \ \ (i.e.\ disable\ interrupts)}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#ifndef\ \ \ SEGGER\_RTT\_UNLOCK}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\ \ \#define\ SEGGER\_RTT\_UNLOCK()\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Unlock\ RTT\ (nestable)\ (i.e.\ enable\ previous\ interrupt\ lock\ state)}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00429\ \textcolor{comment}{/***************************\ End\ of\ file\ ****************************/}}
+
+\end{DoxyCode}
