@@ -108,6 +108,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a00eb7f7a3bb884a0e38a01c25be76683" id="r_a00eb7f7a3bb884a0e38a01c25be76683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00eb7f7a3bb884a0e38a01c25be76683">run</a> ()</td></tr>
 <tr class="memdesc:a00eb7f7a3bb884a0e38a01c25be76683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the benchmark for the specified function.  <br /></td></tr>
 <tr class="separator:a00eb7f7a3bb884a0e38a01c25be76683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217d59463595aa6fb7fe67d46efbd8bb" id="r_a217d59463595aa6fb7fe67d46efbd8bb"><td class="memTemplParams" colspan="2">template&lt;ResultsProcessor... Processors&gt; </td></tr>
+<tr class="memitem:a217d59463595aa6fb7fe67d46efbd8bb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a217d59463595aa6fb7fe67d46efbd8bb">process_results</a> (Processors &amp;... proc)</td></tr>
+<tr class="memdesc:a217d59463595aa6fb7fe67d46efbd8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the results for the specified output.  <br /></td></tr>
+<tr class="separator:a217d59463595aa6fb7fe67d46efbd8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;std::size_t N, Metricable Metric, auto FUT&gt;<br />
@@ -153,6 +157,38 @@ template&lt;std::size_t N, Metricable Metric, auto FUT&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a217d59463595aa6fb7fe67d46efbd8bb" name="a217d59463595aa6fb7fe67d46efbd8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217d59463595aa6fb7fe67d46efbd8bb">&#9670;&#160;</a></span>process_results()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, Metricable Metric, auto FUT&gt; </div>
+<div class="memtemplate">
+template&lt;ResultsProcessor... Processors&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classembpp_1_1_benchmark.html">embpp::Benchmark</a>&lt; N, Metric, FUT &gt;::process_results </td>
+          <td>(</td>
+          <td class="paramtype">Processors &amp;...</td>          <td class="paramname"><span class="paramname"><em>proc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Processes the results for the specified output. </p>
+<p>Processes the results obtained from the benchmark run to prepare user defined output. This can include calculating simple statistics (MinMaxAvg, MeanStdDev, Histogram etc), prettify raw data, or performing custom calculations. </p>
+
+</div>
+</div>
 <a id="a00eb7f7a3bb884a0e38a01c25be76683" name="a00eb7f7a3bb884a0e38a01c25be76683"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00eb7f7a3bb884a0e38a01c25be76683">&#9670;&#160;</a></span>run()</h2>
 
@@ -185,7 +221,7 @@ template&lt;std::size_t N, Metricable Metric, auto FUT&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="embench_09_09_8h_source.html">embench++.h</a></li>
+<li>core/<a class="el" href="embench_09_09_8h_source.html">embench++.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

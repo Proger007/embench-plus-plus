@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>embench++: README</title>
+<title>embench++: embench++</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,10 +84,70 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div><div class="header">
-  <div class="headertitle"><div class="title">README</div></div>
+  <div class="headertitle"><div class="title">embench++</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><p><a class="anchor" id="autotoc_md1"></a></p>
+<p><b>embench++</b> is a modern, modular, and hardware-independent benchmarking framework for embedded systems, designed with C++20 for maximum flexibility and zero-runtime overhead.</p>
+<p>This framework enables developers to evaluate performance-critical functions across various environments and configurations. It supports plugin-like extensions for metric collection, data processing, and result output — allowing benchmarking on platforms ranging from bare-metal microcontrollers to more complex setups.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Features</h1>
+<ul>
+<li><b>Modular architecture</b> with clear separation of concerns</li>
+<li><b>Header-only core</b> with optional modules (metrics, processors, printers)</li>
+<li><b>Zero dynamic allocation</b> for real-time embedded compatibility</li>
+<li><b>C++20 concepts</b> for compile-time validation</li>
+<li><b>Optional Docker-based development setup</b> for fast onboarding and reproducibility</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Repository Structure</h1>
+<div class="fragment"><div class="line">embench-plus-plus</div>
+<div class="line">├── core                        # Core benchmarking logic and concepts</div>
+<div class="line">├── docker                      # Dockerfile and related container setup</div>
+<div class="line">├── docs                        # Documentation and output folders</div>
+<div class="line">│   ├── html</div>
+<div class="line">│   │   └── search</div>
+<div class="line">│   └── latex</div>
+<div class="line">├── examples</div>
+<div class="line">│   └── ARM</div>
+<div class="line">│       └── NUCLEO-F411RE</div>
+<div class="line">│           └── crc_test       # Example benchmark for STM32F411RE</div>
+<div class="line">├── metrics</div>
+<div class="line">│   └── cpu</div>
+<div class="line">│       └── cyccnt             # Cortex-M cycle counter metric</div>
+<div class="line">├── printers</div>
+<div class="line">│   └── rtt</div>
+<div class="line">│       └── segger_rtt         # SEGGER RTT-based output</div>
+<div class="line">│           ├── Config</div>
+<div class="line">│           ├── RTT</div>
+<div class="line">│           └── Syscalls</div>
+<div class="line">└── proc</div>
+<div class="line">    └── min_max_avg            # Result processors (e.g., Min/Max/Avg)</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Getting Started</h1>
+<p>See <a href="./examples/ARM/NUCLEO-F411RE/crc_test">examples/ARM/NUCLEO-F411RE/crc_test</a> for a working example, including:</p><ul>
+<li>STM32Cube HAL-based hardware initialization</li>
+<li>Integration with RTT for output</li>
+<li>Measurement using DWT cycle counter</li>
+</ul>
+<p>You can build this example locally or in a Docker-based environment provided in the repository.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Development Environment</h1>
+<p>This project supports VSCode Dev Containers using a Docker-based setup. It ensures:</p><ul>
+<li>Consistent toolchain across platforms</li>
+<li>Easy onboarding with zero manual dependency setup</li>
+</ul>
+<p>To use:</p><ol type="1">
+<li>Open <code>examples/ARM/NUCLEO-F411RE/crc_test</code> in VSCode</li>
+<li>Reopen in Dev Container when prompted</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+License</h1>
+<p>This project is licensed under the MIT License.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Contribution</h1>
+<p>Contributions, ideas, and extensions are very welcome! Please open an issue or a pull request to get involved. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

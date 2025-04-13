@@ -1,0 +1,32 @@
+\doxysection{embpp\+::Results\+Processor Concept Reference}
+\hypertarget{conceptembpp_1_1_results_processor}{}\label{conceptembpp_1_1_results_processor}\index{embpp::ResultsProcessor@{embpp::ResultsProcessor}}
+
+
+Concept to define a Processor to process the results after benchmark run.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptembpp_1_1_results_processor}{embpp::ResultsProcessor}}\ =\ \ \textcolor{keyword}{requires}(T\ t,\ std::span<const\ std::uint32\_t>\ results)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\{\ t.process(results)\ \}\ -\/>\ std::same\_as<void>;\ }
+\DoxyCodeLine{\{\ t.c\_str()\ \}\ -\/>\ std::same\_as<const\ char*>;\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept to define a Processor to process the results after benchmark run. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & -\/ Class implementing process method \\
+\hline
+\end{DoxyTemplParams}

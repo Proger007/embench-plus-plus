@@ -1,2 +1,65 @@
-\chapter{README}
-\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+\chapter{embench++}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{embench++@{embench++}}
+\label{md__r_e_a_d_m_e_autotoc_md1}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md1}%
+
+
+{\bfseries{embench++}} is a modern, modular, and hardware-\/independent benchmarking framework for embedded systems, designed with C++20 for maximum flexibility and zero-\/runtime overhead.
+
+This framework enables developers to evaluate performance-\/critical functions across various environments and configurations. It supports plugin-\/like extensions for metric collection, data processing, and result output — allowing benchmarking on platforms ranging from bare-\/metal microcontrollers to more complex setups.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Features}{Features}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{Modular architecture}} with clear separation of concerns
+\item {\bfseries{Header-\/only core}} with optional modules (metrics, processors, printers)
+\item {\bfseries{Zero dynamic allocation}} for real-\/time embedded compatibility
+\item {\bfseries{C++20 concepts}} for compile-\/time validation
+\item {\bfseries{Optional Docker-\/based development setup}} for fast onboarding and reproducibility
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Repository Structure}{Repository Structure}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{embench-\/plus-\/plus}
+\DoxyCodeLine{├──\ core\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Core\ benchmarking\ logic\ and\ concepts}
+\DoxyCodeLine{├──\ docker\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Dockerfile\ and\ related\ container\ setup}
+\DoxyCodeLine{├──\ docs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentation\ and\ output\ folders}
+\DoxyCodeLine{│  \ ├──\ html}
+\DoxyCodeLine{│  \ │  \ └──\ search}
+\DoxyCodeLine{│  \ └──\ latex}
+\DoxyCodeLine{├──\ examples}
+\DoxyCodeLine{│  \ └──\ ARM}
+\DoxyCodeLine{│  \ \ \ \ \ └──\ NUCLEO-\/F411RE}
+\DoxyCodeLine{│  \ \ \ \ \ \ \ \ \ └──\ crc\_test\ \ \ \ \ \ \ \#\ Example\ benchmark\ for\ STM32F411RE}
+\DoxyCodeLine{├──\ metrics}
+\DoxyCodeLine{│  \ └──\ cpu}
+\DoxyCodeLine{│  \ \ \ \ \ └──\ cyccnt\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Cortex-\/M\ cycle\ counter\ metric}
+\DoxyCodeLine{├──\ printers}
+\DoxyCodeLine{│  \ └──\ rtt}
+\DoxyCodeLine{│  \ \ \ \ \ └──\ segger\_rtt\ \ \ \ \ \ \ \ \ \#\ SEGGER\ RTT-\/based\ output}
+\DoxyCodeLine{│  \ \ \ \ \ \ \ \ \ ├──\ Config}
+\DoxyCodeLine{│  \ \ \ \ \ \ \ \ \ ├──\ RTT}
+\DoxyCodeLine{│  \ \ \ \ \ \ \ \ \ └──\ Syscalls}
+\DoxyCodeLine{└──\ proc}
+\DoxyCodeLine{\ \ \ \ └──\ min\_max\_avg\ \ \ \ \ \ \ \ \ \ \ \ \#\ Result\ processors\ (e.g.,\ Min/Max/Avg)}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Getting Started}{Getting Started}}\label{md__r_e_a_d_m_e_autotoc_md4}
+See \href{./examples/ARM/NUCLEO-F411RE/crc_test}{\texttt{ examples/\+ARM/\+NUCLEO-\/\+F411\+RE/crc\+\_\+test}} for a working example, including\+:
+\begin{DoxyItemize}
+\item STM32\+Cube HAL-\/based hardware initialization
+\item Integration with RTT for output
+\item Measurement using DWT cycle counter
+\end{DoxyItemize}
+
+You can build this example locally or in a Docker-\/based environment provided in the repository.\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Development Environment}{Development Environment}}\label{md__r_e_a_d_m_e_autotoc_md5}
+This project supports VSCode Dev Containers using a Docker-\/based setup. It ensures\+:
+\begin{DoxyItemize}
+\item Consistent toolchain across platforms
+\item Easy onboarding with zero manual dependency setup
+\end{DoxyItemize}
+
+To use\+:
+\begin{DoxyEnumerate}
+\item Open {\ttfamily examples/\+ARM/\+NUCLEO-\/\+F411\+RE/crc\+\_\+test} in VSCode
+\item Reopen in Dev Container when prompted
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{License}{License}}\label{md__r_e_a_d_m_e_autotoc_md6}
+This project is licensed under the MIT License.\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Contribution}{Contribution}}\label{md__r_e_a_d_m_e_autotoc_md7}
+Contributions, ideas, and extensions are very welcome! Please open an issue or a pull request to get involved. 

@@ -95,18 +95,22 @@ $(function(){ initResizable(false); });
 <p>Concept to define a metric for benchmarking.  
 <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="embench_09_09_8h_source.html">embench++.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="concepts_8h_source.html">concepts.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptembpp_1_1_metricable.html">embpp::Metricable</a> =  <span class="keyword">requires</span>(T t) {</div>
-<div class="line">    { t.get_metric() } -&gt; std::same_as&lt;std::uint32_t&gt;; </div>
-<div class="line">    { t.setup() }; </div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptembpp_1_1_metricable.html">embpp::Metricable</a> =  <span class="keyword">requires</span>(T t)</div>
+<div class="line">{</div>
+<div class="line">{ t.get_metric_start() } -&gt; std::same_as&lt;std::uint32_t&gt;; </div>
+<div class="line">{ t.get_metric_start() }; </div>
+<div class="line">{ t.get_metric_end() } -&gt; std::same_as&lt;std::uint32_t&gt;; </div>
+<div class="line">{ t.setup() }; </div>
 <div class="line">}</div>
-<div class="ttc" id="aconceptembpp_1_1_metricable_html"><div class="ttname"><a href="conceptembpp_1_1_metricable.html">embpp::Metricable</a></div><div class="ttdoc">Concept to define a metric for benchmarking.</div><div class="ttdef"><b>Definition</b> embench++.h:34</div></div>
+<div class="ttc" id="aconceptembpp_1_1_metricable_html"><div class="ttname"><a href="conceptembpp_1_1_metricable.html">embpp::Metricable</a></div><div class="ttdoc">Concept to define a metric for benchmarking.</div><div class="ttdef"><b>Definition</b> concepts.h:25</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept to define a metric for benchmarking. </p>
-<p>The <code>Metricable</code> concept ensures that the type passed as a Metric implements both the <code>get_metric()</code> and <code>setup()</code> methods.</p><ul>
-<li><code>get_metric()</code> should return a 32-bit unsigned integer representing the metric value (e.g., cycle count).</li>
+<p>The <code>Metricable</code> concept ensures that the type passed as a Metric implements the <code>get_metric_start()</code>, <code>get_metric_end()</code> and <code>setup()</code> methods.</p><ul>
+<li><code>get_metric_start()</code> should return a 32-bit unsigned integer representing the metric start value (e.g., cycle count).</li>
+<li><code>get_metric_end()</code> should return a 32-bit unsigned integer representing the metric end value (e.g., cycle count - 1).</li>
 <li><code>setup()</code> should initialize or reset the metric system before the benchmark starts. </li>
 </ul>
 </div></div><!-- contents -->

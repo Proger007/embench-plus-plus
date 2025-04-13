@@ -1,0 +1,31 @@
+\chapter{RTT}
+\hypertarget{md_printers_2rtt_2segger__rtt_2_r_e_a_d_m_e}{}\label{md_printers_2rtt_2segger__rtt_2_r_e_a_d_m_e}\index{RTT@{RTT}}
+SEGGER RTT Sources
+
+\href{https://www.segger.com/products/debug-probes/j-link/technology/about-real-time-transfer}{\texttt{ https\+://www.\+segger.\+com/products/debug-\/probes/j-\/link/technology/about-\/real-\/time-\/transfer}} ~\newline
+ \href{https://wiki.segger.com/RTT}{\texttt{ https\+://wiki.\+segger.\+com/\+RTT}}\hypertarget{md_printers_2rtt_2segger__rtt_2_r_e_a_d_m_e_autotoc_md0}{}\doxysection{\texorpdfstring{Included files}{Included files}}\label{md_printers_2rtt_2segger__rtt_2_r_e_a_d_m_e_autotoc_md0}
+
+\begin{DoxyItemize}
+\item {\ttfamily RTT/}
+\begin{DoxyItemize}
+\item {\ttfamily SEGGER\+\_\+\+RTT.\+c} -\/ Main module for RTT.
+\item {\ttfamily \doxylink{_s_e_g_g_e_r___r_t_t_8h_source}{SEGGER\+\_\+\+RTT.\+h}} -\/ Main header for RTT.
+\item {\ttfamily SEGGER\+\_\+\+RTT\+\_\+\+ASM\+\_\+\+ARMv7\+M.\+S} -\/ Assembly-\/optimized implementation of RTT functions for ARMv7M processors.
+\item {\ttfamily SEGGER\+\_\+\+RTT\+\_\+\+Printf.\+c} -\/ Simple implementation of printf ({\ttfamily SEGGER\+\_\+\+RTT\+\_\+\+Printf()}) to write formatted strings via RTT.
+\end{DoxyItemize}
+\item {\ttfamily Syscalls/}
+\begin{DoxyItemize}
+\item {\ttfamily SEGGER\+\_\+\+RTT\+\_\+\+Syscalls\+\_\+\texorpdfstring{$\ast$}{*}.c} -\/ Low-\/level syscalls to retarget {\ttfamily printf()} to RTT with different toolchains.
+\end{DoxyItemize}
+\item {\ttfamily Config/}
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{_s_e_g_g_e_r___r_t_t___conf_8h_source}{SEGGER\+\_\+\+RTT\+\_\+\+Conf.\+h}} -\/ RTT configuration file.
+\end{DoxyItemize}
+\item {\ttfamily Examples/}
+\begin{DoxyItemize}
+\item {\ttfamily Main\+\_\+\+RTT\+\_\+\+Input\+Echo\+App.\+c} -\/ Example application which echoes input on Channel 0.
+\item {\ttfamily Main\+\_\+\+RTT\+\_\+\+Menu\+App.\+c} -\/ Example application to demonstrate RTT bi-\/directional functionality.
+\item {\ttfamily Main\+\_\+\+RTT\+\_\+\+Printf\+Test.\+c} -\/ Example application to test RTT\textquotesingle{}s simple printf implementation.
+\item {\ttfamily Main\+\_\+\+RTT\+\_\+\+Speed\+Test\+App.\+c} -\/ Example application to measure RTT performance. (Requires emb\+OS) 
+\end{DoxyItemize}
+\end{DoxyItemize}
