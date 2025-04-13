@@ -3,8 +3,8 @@
 {
 	"name": "embench++ crc_test",
 	"build": {
-	  "dockerfile": "../../../../../docker/Dockerfile"
-	//   "context": "../../../../.."
+	  "dockerfile": "../../../../../docker/Dockerfile",
+	  "context": "../../../../.."
 	},
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	
@@ -17,16 +17,16 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
 
-	"workspaceMount": "source=${localWorkspaceFolder}/../../../..,target=/workspaces/embench-plus-plus,type=bind",
 	"workspaceFolder": "/workspaces/embench-plus-plus/examples/ARM/NUCLEO-F411RE/crc_test",
+	"workspaceMount": "source=${localWorkspaceFolder}/../../../..,target=/workspaces/embench-plus-plus,type=bind",
 
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-vscode.cpptools",
-				"esbenp.prettier-vscode",
-				"ms-vscode.cmake-tools"
+				"esbenp.prettier-vscode"
+				// "ms-vscode.cmake-tools"
 			]
 		}
 	}

@@ -55,7 +55,7 @@ To use:
 2. Reopen in Dev Container when prompted
 
 ## License
-This project is licensed under the BSD-3-Clause License.
+This project is licensed under the MIT License.
 
 ## Contribution
 Contributions, ideas, and extensions are very welcome!

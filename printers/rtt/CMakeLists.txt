@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.22)
 
 add_library(printer_rtt STATIC 
 		printer_rtt.cpp

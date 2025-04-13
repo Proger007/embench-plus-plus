@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.22)
 
 add_library(cortexm4_cyccnt INTERFACE)
 target_include_directories(cortexm4_cyccnt INTERFACE
